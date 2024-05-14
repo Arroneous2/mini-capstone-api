@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+p "Seeds is up"
+
+def save_product()
+  product = Product.new(name: "lobster", price: 25, image_url:"https://media.istockphoto.com/id/1438227465/photo/red-lobster-isolated-on-white-background-full-depth-of-field.jpg?s=612x612&w=0&k=20&c=-YPUGzpy5AjLGYrY7-7RpWCIFuDjFiGjkidCxskAZ24=", description: "Lobsters are malacostracans of the family Nephropidae (synonym Homaridae[2]). They have long bodies with muscular tails and live in crevices or burrows on the sea floor. Three of their five pairs of legs have claws, including the first pair, which are usually much larger than the others. Highly prized as seafood, lobsters are economically important and are often one of the most profitable commodities in the coastal areas they populate.")
+  product.save
+end
+
+save_product()
