@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def create 
-    @product = Product.new(name: "Test Create", price: 200, image_url: "https://us-tuna-sounds-images.voicemod.net/96a51c85-9b68-4368-8530-f824db4dd10d-1661095056602.jpg", description: "This is just some text for a test")
+    @product = Product.new(name: params[:name], price: params[:price], image_url: params[:image_url], description: params[:description])
     @product.save
     render template: "products/show"
   end
