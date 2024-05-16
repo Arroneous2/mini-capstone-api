@@ -1,1 +1,1 @@
-json.array! @product, :name, :price, :image_url, :description
+json.array! @product, :id, :name, :price, :image_url, :description
