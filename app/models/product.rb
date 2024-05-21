@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  validates :name, presenced: true
+  validates :name, presence: true
   validates :price, comparison: {greater_than: 0} 
 
   # returns true if an item is less than or equal to $10 and false otherwise.
