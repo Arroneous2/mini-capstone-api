@@ -18,10 +18,10 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     @product.update(
-      name: params[:name] = @product.name || @product.name,
-      price: params[:price] = @product.price || @product.price,
-      image_url: params[:image_url] = @product.image_url || @product.image_url,
-      description: params[:description] = @product.description || @product.description
+      name: @product.name = params[:name]|| @product.name,
+      price: @product.price = params[:price]|| @product.price,
+      image_url: @product.image_url = params[:image_url]|| @product.image_url,
+      description: @product.description = params[:description]|| @product.description
     )
     render template: "products/show"
   end
