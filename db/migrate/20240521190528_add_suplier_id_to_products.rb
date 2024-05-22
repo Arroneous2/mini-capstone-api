@@ -1,5 +1,6 @@
 class AddSuplierIdToProducts < ActiveRecord::Migration[7.1]
   def change
-    add_reference :products, :suppliers, foreign_key: true
+    rename_column :products, :suppliers_id, :supplier_id
+
   end
 end
