@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   def index
-    @product = Product.all
+    pp current_user
+    @products = Product.all
     render template: "products/index"
   end
 
@@ -10,7 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def create 
-    @product = Product.new(name: params[:name], price: params[:price], image_url: params[:image_url], description: params[:description])
+    @product = Product.new(name: params[:name], price: params[:price], description: params[:description])
     @product.save
     render template: "products/show"
   end
@@ -20,7 +21,6 @@ class ProductsController < ApplicationController
     @product.update(
       name: @product.name = params[:name]|| @product.name,
       price: @product.price = params[:price]|| @product.price,
-      image_url: @product.image_url = params[:image_url]|| @product.image_url,
       description: @product.description = params[:description]|| @product.description
     )
     render template: "products/show"
