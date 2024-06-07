@@ -1,8 +1,10 @@
 class Product < ApplicationRecord
   validates :name, presence: true
   validates :price, comparison: {greater_than: 0} 
-  belongs_to :supplier 
-  has_many :images 
+  belongs_to :supplier
+  has_many :images
+  has_many :orders
+
 
   # returns true if an item is less than or equal to $10 and false otherwise.
   def is_discounted

@@ -1,8 +1,4 @@
 class ProductsController < ApplicationController
-  belongs_to :supplier
-  has_many :images
-  has_many :orders
-
   def index
     pp current_user
     @products = Product.all
