@@ -14,8 +14,12 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
-    render :index
+    if current_user
+      @orders = Order.where(user_id: current_user.id)
+      render :index
+    else
+      render json: {error: "Log in to see index"}
+    end
   end
 
   def show
