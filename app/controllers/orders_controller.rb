@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user
+
   def create
     @product = Product.where(id: params[:product_id])[0]
     @order = Order.new(
@@ -14,12 +16,8 @@ class OrdersController < ApplicationController
   end
 
   def index
-    if current_user
-      @orders = Order.where(user_id: current_user.id)
-      render :index
-    else
-      render json: {error: "Log in to see index"}
-    end
+    @orders = Order.where(user_id: current_user.id)
+    render :index
   end
 
   def show
