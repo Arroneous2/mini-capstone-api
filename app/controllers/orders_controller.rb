@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.where(user_id: current_user.id)
+    @orders = current_user.orders
     render :index
   end
 
@@ -24,8 +24,6 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     if current_user.id == @order.user_id
       render :show
-    else
-      render json: {error: "Nah ah ah, not your stuff"}
     end
   end
 end

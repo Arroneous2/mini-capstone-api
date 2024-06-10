@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin, except: [:index, :show]
+
   def index
     pp current_user
     @products = Product.all
@@ -13,7 +15,7 @@ class ProductsController < ApplicationController
   def create 
     @product = Product.new(name: params[:name], price: params[:price], description: params[:description])
     @product.save
-    render template: "products/show"
+    render :show
   end
   
   def update
