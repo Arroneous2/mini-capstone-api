@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   validates :price, comparison: {greater_than: 0} 
   has_many :orders
   has_many :category_products
+  has_many :categories, through: :category_products
 
 
   # returns true if an item is less than or equal to $10 and false otherwise.
