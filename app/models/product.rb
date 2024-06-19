@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   has_many :orders
   has_many :category_products
   has_many :categories, through: :category_products
+  has_many :carted_products
 
 
   # returns true if an item is less than or equal to $10 and false otherwise.
