@@ -30,4 +30,14 @@ class CartedProductsController < ApplicationController
     render :show
   end
 
+  def destroy
+    @carted_product = CartedProduct.find(params[:id])
+    if current_user.id == @carted_product.user_id
+      @carted_product.update(status: "removed")
+      render :show
+    else
+      render json: {message: "not yours to delete"}
+    end
+  end
+
 end
