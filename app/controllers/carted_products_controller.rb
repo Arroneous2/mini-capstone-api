@@ -2,15 +2,7 @@ class CartedProductsController < ApplicationController
   before_action :authenticate_user
 
   def index
-    @user_carted_products = current_user.carted_products
-    @carted_products = []
-    @user_carted_products.each do |carted_product|
-      if carted_product.status == "carted"
-        @carted_products << carted_product
-      end
-    end
-
-    
+    @carted_products = CartedProduct.where(user_id: current_user.id, status: "carted")
     render :index
   end
 
