@@ -9,6 +9,14 @@ class Product < ApplicationRecord
   has_many :carted_products
 
 
+  def images_with_default
+    if images.lenght > 0
+      return images
+    else
+      return [{url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzarRZzdxjwFhIIdApYRTHBPLxbNUNj8thfA&s"}]
+    end
+  end
+
   # returns true if an item is less than or equal to $10 and false otherwise.
   def is_discounted
     return price <= 10

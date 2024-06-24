@@ -3,5 +3,5 @@ json.name product.name
 json.price product.price
 json.description product.description
 json.supplier product.supplier
-json.images product.images
+json.images product.images_with_default
 json.categories product.categories
