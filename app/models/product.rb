@@ -10,7 +10,7 @@ class Product < ApplicationRecord
 
 
   def images_with_default
-    if images.lenght > 0
+    if images.length > 0
       return images
     else
       return [{url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzarRZzdxjwFhIIdApYRTHBPLxbNUNj8thfA&s"}]
